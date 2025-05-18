@@ -1,7 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../models/note_model.dart';
 import '../data/notes_api.dart';
+import '../models/note_model.dart';
+import '../screens/login_screen.dart';
 
 final notesProvider = FutureProvider<List<NoteModel>>((ref) async {
-  return await NotesApi.getNotes(1); // Use actual user id from auth
+  final user = ref.watch(authStateProvider);
+  if (user == null) return []; // or throw an error
+  return await NotesApi.getNotes(user.id);
 });

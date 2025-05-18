@@ -3,10 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../data/notes_api.dart';
 import '../models/note_model.dart';
-
-final notesProvider = FutureProvider<List<NoteModel>>((ref) async {
-  return await NotesApi.getNotes(1); // Replace with actual user ID
-});
+import '../providers/notes_provider.dart';
+import 'login_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
