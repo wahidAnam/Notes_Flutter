@@ -32,7 +32,7 @@ class HomeScreen extends ConsumerWidget {
         error: (e, _) => Center(child: Text('Error loading notes: $e')),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.go('/add-note'),
+        onPressed: () => context.push('/add-note'),
         child: const Icon(Icons.add),
       ),
     );
