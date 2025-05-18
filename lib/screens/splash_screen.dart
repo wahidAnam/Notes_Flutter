@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:notes/core/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,7 +33,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: CircularProgressIndicator()),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(height: 20),
+            Image(
+              image: AssetImage('assets/images/icon.png'),
+              height: 150,
+            ),
+            SizedBox(height: 20),
+            Text(
+              "Notes: The Mind Book",
+              style: TextStyle(
+                  color: AppColors.primaryColor,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic),
+            ),
+            SizedBox(height: 20),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
     );
   }
 }

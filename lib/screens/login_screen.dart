@@ -105,7 +105,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               backgroundColor: AppColors.primaryColor
                           ),
-                          child: const Text("Login",style: TextStyle(color: Colors.white),),
+                          child: const Text("L O G I N",style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       TextButton(

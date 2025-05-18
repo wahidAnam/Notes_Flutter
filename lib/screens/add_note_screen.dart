@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../core/constants.dart';
 import '../data/notes_api.dart';
 import '../providers/notes_provider.dart';
 import '../screens/login_screen.dart';
@@ -15,7 +16,6 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 
-
   @override
   void dispose() {
     titleController.dispose();
@@ -25,27 +25,48 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = ref.watch(authStateProvider);//Get the current user id
-        return Scaffold(
-      appBar: AppBar(title: const Text("Add Note")),
+    final user = ref.watch(authStateProvider); //Get the current user id
+    return Scaffold(
+      appBar: AppBar(centerTitle: true,title: const Text("Add Note")),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             TextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Title'),
+              decoration: InputDecoration(
+                labelText: 'Title',
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: descriptionController,
               maxLines: 5,
-              decoration: const InputDecoration(labelText: 'Description'),
+              decoration: InputDecoration(
+                labelText: 'Description',
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: defaultPadding, horizontal: defaultPadding),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  backgroundColor: AppColors.primaryColor),
               onPressed: () async {
-                final user = ref.read(authStateProvider);//get the current user id
+                final user =
+                    ref.read(authStateProvider); //get the current user id
                 if (user == null) return;
 
                 final success = await NotesApi.addNote(
@@ -70,7 +91,7 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
                   }
                 }
               },
-              child: const Text("Save Note"),
+              child: const Text("Save Note",style: TextStyle(color: Colors.white),),
             )
           ],
         ),
