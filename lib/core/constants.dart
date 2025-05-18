@@ -8,6 +8,8 @@ const String loginUrl = "${baseUrl}login.php";
 const String registerUrl = "${baseUrl}register.php";
 const String addNoteUrl = "${baseUrl}add_note.php";
 const String getNotesUrl = "${baseUrl}get_notes.php";
+const String getNotesbyIdUrl = "${baseUrl}get_note.php";
+const String updateNoteUrl = "${baseUrl}update_note.php";
 
 /// UI Constants
 const double defaultPadding = 16.0;
