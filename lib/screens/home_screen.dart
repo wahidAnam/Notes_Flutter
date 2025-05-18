@@ -14,7 +14,7 @@ class HomeScreen extends ConsumerWidget {
     final notes = ref.watch(notesProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("My Notes")),
+      appBar: AppBar(centerTitle: true,title: const Text("My Notes")),
       body: notes.when(
         data: (data) => ListView.builder(
           itemCount: data.length,
