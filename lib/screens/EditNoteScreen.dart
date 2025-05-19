@@ -7,7 +7,7 @@ import '../providers/notes_provider.dart';
 
 class EditNoteScreen extends ConsumerStatefulWidget {
   final int noteId;
-  const EditNoteScreen({super.key, required this.noteId});
+  EditNoteScreen({super.key, required this.noteId});
 
   @override
   ConsumerState<EditNoteScreen> createState() => _EditNoteScreenState();
@@ -36,41 +36,59 @@ class _EditNoteScreenState extends ConsumerState<EditNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: const Text("Edit Note")),
+      appBar: AppBar(centerTitle: true, title: Text("Edit Note")),
       body: isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
               child: Column(
                 children: [
                   TextField(
                     controller: titleController,
+                    textAlignVertical: TextAlignVertical.top,
                     decoration: InputDecoration(
                       labelText: 'Title',
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(4),
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        borderSide: BorderSide(color: Colors.transparent),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  TextField(
-                    controller: descriptionController,
-                    maxLines: 5,
-                    decoration: InputDecoration(
-                      labelText: 'Description',
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(4),
+                  SizedBox(height: 10),
+                  SizedBox(
+                    height: 250,
+                    child: TextField(
+                      controller: descriptionController,
+                      expands: true,
+                      maxLines: null,
+                      minLines: null,
+                      textAlignVertical: TextAlignVertical.top,
+                      decoration: InputDecoration(
+                        labelText: 'Description',
+                        filled: true,
+                        fillColor: Colors.white,
+                        alignLabelWithHint: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4),
+                          borderSide: BorderSide(color: Colors.transparent),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(4),
+                          borderSide: BorderSide(color: Colors.transparent),
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: defaultPadding,horizontal: defaultPadding),
+                        padding: EdgeInsets.symmetric(vertical: defaultPadding,horizontal: defaultPadding),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         backgroundColor: AppColors.primaryColor
                     ),
@@ -84,11 +102,11 @@ class _EditNoteScreenState extends ConsumerState<EditNoteScreen> {
                         ref.invalidate(notesProvider);
                         Navigator.pop(context);
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Updated successfully!")),
+                          SnackBar(content: Text("Updated successfully!")),
                         );
                       }
                     },
-                    child: const Text("Update Note",style: TextStyle(color: Colors.white),),
+                    child: Text("Update Note",style: TextStyle(color: Colors.white),),
                   )
                 ],
               ),

@@ -5,7 +5,7 @@ import 'package:notes/core/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? firstTime = prefs.getBool('first_time');
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 2));
     if (firstTime == null || firstTime) {
       await prefs.setBool('first_time', false);
       context.go('/login');

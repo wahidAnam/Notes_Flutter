@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// Base URL
-const String baseUrl = "http://192.168.0.107/Index/Notes/";
+const String baseUrl = "https://wahiddev.xyz/anam/notes_app/";
 
 /// Notes API endpoints
 const String loginUrl = "${baseUrl}login.php";

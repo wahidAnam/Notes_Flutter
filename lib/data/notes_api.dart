@@ -4,7 +4,6 @@ import '../models/note_model.dart';
 import '../core/constants.dart';
 
 class NotesApi {
-
     //Getting all notes
     static Future<List<NoteModel>> getNotes(int userId) async {
     final response = await http.get(Uri.parse("$getNotesUrl?user_id=$userId"));

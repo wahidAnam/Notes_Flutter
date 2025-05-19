@@ -42,54 +42,54 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 height: 150,
               ),
               Card(
-                margin: const EdgeInsets.symmetric(horizontal: 24),
+                margin: EdgeInsets.symmetric(horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
                 elevation: 4,
                 child: Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: EdgeInsets.all(24),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
+                      Text(
                         'Sign Up',
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
 
                       // Name Field
                       TextField(
                         controller: nameController,
                         decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.person),
+                          prefixIcon: Icon(Icons.person),
                           hintText: 'Name',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
 
                       // Email Field
                       TextField(
                         controller: emailController,
                         decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.email),
+                          prefixIcon: Icon(Icons.email),
                           hintText: 'Email',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
 
                       // Password Field with toggle
                       TextField(
                         controller: passwordController,
                         obscureText: !isPasswordVisible,
                         decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.lock),
+                          prefixIcon: Icon(Icons.lock),
                           suffixIcon: IconButton(
                             icon: Icon(
                               isPasswordVisible ? Icons.visibility : Icons.visibility_off,
@@ -106,7 +106,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                         ),
                       ),
-                      const SizedBox(height: 24),
+                      SizedBox(height: 24),
 
                       // Register Button
                       SizedBox(
@@ -121,16 +121,16 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                             if (success) {
                               context.go('/login');
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Registered successfully!")),
+                                SnackBar(content: Text("Registered successfully!")),
                               );
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            padding: EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             backgroundColor: AppColors.primaryColor
                           ),
-                          child: const Text("Register",style: TextStyle(color: Colors.white),),
+                          child: Text("Register",style: TextStyle(color: Colors.white),),
                         ),
                       ),
                     ],

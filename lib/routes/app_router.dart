@@ -12,23 +12,23 @@ final GoRouter appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/splash',
-      builder: (context, _) => const SplashScreen(),
+      builder: (context, _) =>  SplashScreen(),
     ),
     GoRoute(
       path: '/login',
-      builder: (context, _) => const LoginScreen(),
+      builder: (context, _) =>  LoginScreen(),
     ),
     GoRoute(
       path: '/register',
-      builder: (context, _) => const RegisterScreen(),
+      builder: (context, _) =>  RegisterScreen(),
     ),
     GoRoute(
       path: '/home',
-      builder: (context, _) => const HomeScreen(),
+      builder: (context, _) =>  HomeScreen(),
     ),
     GoRoute(
       path: '/add-note',
-      builder: (context, _) => const AddNoteScreen(),
+      builder: (context, _) =>  AddNoteScreen(),
     ),
     GoRoute(
       path: '/edit-note/:id',
@@ -36,7 +36,7 @@ final GoRouter appRouter = GoRouter(
         final noteIdStr = state.pathParameters['id'];
         final noteId = int.tryParse(noteIdStr ?? '');
         if (noteId == null) {
-          return const Scaffold(
+          return  Scaffold(
             body: Center(child: Text('Invalid note ID')),
           );
         }

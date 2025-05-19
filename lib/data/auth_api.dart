@@ -4,6 +4,8 @@ import '../models/user_model.dart';
 import '../core/constants.dart';
 
 class AuthApi {
+
+  //user login api
   static Future<UserModel?> login(String email, String password) async {
     final response = await http.post(
       Uri.parse(loginUrl),
@@ -20,6 +22,7 @@ class AuthApi {
     return null;
   }
 
+  //user registration api
   static Future<bool> register(String name, String email, String password) async {
     final response = await http.post(
       Uri.parse(registerUrl),

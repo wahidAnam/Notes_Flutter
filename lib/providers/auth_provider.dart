@@ -8,7 +8,6 @@ final authProvider = StateNotifierProvider<AuthNotifier, UserModel?>((ref) {
 
 class AuthNotifier extends StateNotifier<UserModel?> {
   AuthNotifier() : super(null);
-
   Future<bool> login(String email, String password) async {
     final user = await AuthApi.login(email, password);
     if (user != null) {
